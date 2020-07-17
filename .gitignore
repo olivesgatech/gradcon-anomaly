@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+__pycache__
+
+datasets/*
+results/*
+save/*
+
+*.png
+*.tar
+*.pkl
