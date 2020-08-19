@@ -1,7 +1,7 @@
-import torch
-
 import os
+
 import shutil
+import torch
 
 
 class AverageMeter(object):

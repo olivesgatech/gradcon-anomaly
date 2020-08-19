@@ -50,7 +50,7 @@ Download datasets and create splits
 
 optional arguments:
   -h, --help           show this help message and exit
-  --dataset DATASET    Dataset to be downloaded (e.g. cifar-10, mnist)
+  --dataset DATASET    Dataset to be downloaded (e.g. cifar-10, mnist, fmnist)
   --save_dir SAVE_DIR  Path to save the data
 ```
 To download CURE-TSR dataset, please visit [this repository](https://github.com/olivesgatech/CURE-TSR). 

@@ -1,22 +1,23 @@
+import argparse
+import os
+import errno
+
+import numpy as np
+from sklearn.metrics import roc_curve, auc
 import torch
 import torch.utils.data
 import torchvision.transforms as transforms
 
-import argparse
-import os
-import datasets
-import numpy as np
-import errno
-from sklearn.metrics import roc_curve, auc
-
 import models
 import ae_grad_reg
+import datasets
 
 
 parser = argparse.ArgumentParser(description='Evaluation of GradCon')
 parser.add_argument('--print-freq', '-pf', default=10, type=int,
                     metavar='N', help='print frequency (default: 10)')
-parser.add_argument('--dataset', default='', type=str, help='Dataset to be used for training (e.g. cifar-10, mnist)')
+parser.add_argument('--dataset', default='', type=str, help='Dataset to be used for training '
+                                                            '(e.g. cifar-10, mnist, fmnist)')
 parser.add_argument('--dataset_dir', default='./datasets', type=str, help='Path for the dataset')
 parser.add_argument('--ckpt_dir', default='./save', type=str, help='Path to the folder that contains saved models')
 parser.add_argument('--ckpt_name', default='GradConCAE', type=str, help='Checkpoint name')
@@ -29,8 +30,8 @@ def main():
 
     args = parser.parse_args()
 
-    if args.dataset not in ['cifar-10', 'mnist']:
-        raise ValueError('Dataset should be one of the followings: cifar-10, mnist')
+    if args.dataset not in ['cifar-10', 'mnist', 'fmnist']:
+        raise ValueError('Dataset should be one of the followings: cifar-10, mnist, fmnist')
 
     dataset = args.dataset
     grad_loss_weight = args.grad_loss_weight

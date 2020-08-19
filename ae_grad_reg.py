@@ -1,8 +1,8 @@
 import torch
 import torch.nn.functional as func
+import numpy as np
 
 import utils
-import numpy as np
 
 
 def train(model, device, train_loader, optimizer, epoch, print_freq, grad_loss_weight, ref_grad, nlayer):

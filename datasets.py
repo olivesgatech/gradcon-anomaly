@@ -1,8 +1,8 @@
-import torch.utils.data as data
-
 import os
+
 from PIL import Image
 import pickle
+import torch.utils.data as data
 
 
 class AnomalyDataset(data.Dataset):

@@ -1,19 +1,18 @@
+import argparse
+import os
+import time
+import errno
+
 import torch
 import torchvision.utils as vutils
 import torch.utils.data
 import torchvision.transforms as transforms
 from torch import optim
-
-import argparse
-import os
-import time
-import errno
 from tensorboardX import SummaryWriter
 
 import models
 import utils
 import datasets
-
 import ae_grad_reg
 
 
@@ -38,8 +37,8 @@ def main():
 
     args = parser.parse_args()
 
-    if args.dataset not in ['cifar-10', 'mnist']:
-        raise ValueError('Dataset should be one of the followings: cifar-10, mnist')
+    if args.dataset not in ['cifar-10', 'mnist', 'fmnist']:
+        raise ValueError('Dataset should be one of the followings: cifar-10, mnist, fmnist')
 
     dataset = args.dataset
     grad_loss_weight = args.grad_loss_weight
